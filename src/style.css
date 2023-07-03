@@ -74,6 +74,91 @@ header img {
   height: 90px;
 }
 
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  margin-bottom: 40px;
+}
+
+.gallery-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px;
+  gap: 6px;
+  padding: 15px;
+  border-radius: 25px;
+  background-color: #222;
+  color: #fff;
+}
+
+.img-container {
+  width: 65%;
+  height: 60%;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.like-comment {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  height: 80px;
+}
+
+.number-of-likes {
+  display: flex;
+  width: 80%;
+  justify-content: end;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment-btn {
+  width: 30%;
+  padding: 6px;
+  background: rgb(253, 185, 0);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.reservation-btn {
+  width: 35%;
+  padding: 6px;
+  background: rgb(253, 185, 0);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -85,4 +170,30 @@ header img {
   font-size: 20px;
   background-color: #000;
   padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .header-text ul {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .header-text {
+    width: 46%;
+  }
+
+  .header-text ul {
+    display: flex;
+  }
 }
