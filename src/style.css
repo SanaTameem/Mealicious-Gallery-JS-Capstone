@@ -45,11 +45,11 @@ header {
 }
 
 .logo {
-    background-image: url('./assets/logo2.png');
-    width: 100px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-left: 3%;
+  background-image: url('./assets/logo2.png');
+  width: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 3%;
 }
 
 .header-text {
