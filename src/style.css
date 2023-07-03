@@ -73,3 +73,16 @@ header img {
   height: 100px;
   height: 90px;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  font-size: 20px;
+  background-color: #000;
+  padding: 10px;
+}
