@@ -4,7 +4,7 @@
   "description": "<a name=\"readme-top\"></a>",
   "main": "jest.config.js",
   "scripts": {
-    "start": "webpack serve --open",
+    "start": "webpack-dev-server --open",
     "watch": "webpack --watch",
     "build": "webpack",
     "deploy": "gh-pages -d dist",
@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-   "babel-eslint": "^10.1.0",
+    "babel-eslint": "^10.1.0",
     "css-loader": "^6.8.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",

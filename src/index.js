@@ -1,5 +1,6 @@
 import './style.css';
 import getMeals from './modules/getMeals.js';
+import popUp from './modules/PopUp.js';
 
 const galleryContainer = document.querySelector('.gallery-container');
 let mealsArr = [];
@@ -35,13 +36,13 @@ const showCards = async () => {
       //   }
       //   numOfLikeDiv.textContent = `${mealLikes} Likes`;
       galleryContainer.appendChild(itemDiv);
-    //   const commentBtns = itemDiv.querySelectorAll('.comment-btn');
-    //   commentBtns.forEach((btn) => {
-    //     btn.addEventListener('click', () => {
-    //       popUp(meal.idMeal);
-    //       commentGet(meal.idMeal);
-    //     });
-    //   });
+      const commentBtns = itemDiv.querySelectorAll('.comment-btn');
+      commentBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          popUp(meal.idMeal);
+          // commentGet(meal.idMeal);
+        });
+      });
     });
   } catch (error) {
     console.error('Error showing cards:', error);
