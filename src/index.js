@@ -2,6 +2,7 @@ import './style.css';
 import getMeals from './modules/getMeals.js';
 import popUp from './modules/PopUp.js';
 import getLikes from './modules/getLikes.js';
+import postLike from './modules/postLike.js';
 
 const galleryContainer = document.querySelector('.gallery-container');
 let mealsArr = [];
@@ -36,6 +37,17 @@ const showCards = async () => {
         mealLikes = like.likes;
       }
       numOfLikeDiv.textContent = `${mealLikes} Likes`;
+      // HERTH ICON EVENT LISTENER
+      const heartIcon = itemDiv.querySelector('.fa-heart');
+      heartIcon.addEventListener('click', () => {
+        postLike(id, itemDiv);
+      });
+
+      heartIcon.addEventListener('mouseup', () => {
+        heartIcon.classList.add('fa-solid');
+        heartIcon.classList.remove('fa-regular');
+      });
+
       galleryContainer.appendChild(itemDiv);
       const commentBtns = itemDiv.querySelectorAll('.comment-btn');
       commentBtns.forEach((btn) => {
