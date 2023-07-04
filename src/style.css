@@ -259,6 +259,10 @@ main {
   text-align: center;
 }
 
+.comments-div {
+  font-size: 20px;
+}
+
 @media screen and (max-width: 768px) {
   .popup-container {
     width: 90%;
@@ -289,6 +293,10 @@ main {
 
   .popup-item-details-container p {
     text-align: left;
+  }
+
+  .comments-div p {
+    font-size: 14px;
   }
 }
 
