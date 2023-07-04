@@ -1,13 +1,14 @@
 import './style.css';
 import getMeals from './modules/getMeals.js';
 import popUp from './modules/PopUp.js';
+import getLikes from './modules/getLikes.js';
 
 const galleryContainer = document.querySelector('.gallery-container');
 let mealsArr = [];
 const showCards = async () => {
   try {
     mealsArr = await getMeals();
-    // const likeData = await getLikes();
+    const likeData = await getLikes();
     mealsArr.forEach((meal, id) => {
       const itemDiv = document.createElement('div');
       itemDiv.classList.add('gallery-item');
@@ -27,14 +28,14 @@ const showCards = async () => {
         </div>
       `;
 
-      //   const numOfLikeDiv = itemDiv.querySelector('.number-of-likes');
-      //   let mealLikes = 0;
-      //   const like = likeData.find((like) => like.item_id === id);
+      const numOfLikeDiv = itemDiv.querySelector('.number-of-likes');
+      let mealLikes = 0;
+      const like = likeData.find((like) => like.item_id === id);
 
-      //   if (like) {
-      //     mealLikes = like.likes;
-      //   }
-      //   numOfLikeDiv.textContent = `${mealLikes} Likes`;
+      if (like) {
+        mealLikes = like.likes;
+      }
+      numOfLikeDiv.textContent = `${mealLikes} Likes`;
       galleryContainer.appendChild(itemDiv);
       const commentBtns = itemDiv.querySelectorAll('.comment-btn');
       commentBtns.forEach((btn) => {
