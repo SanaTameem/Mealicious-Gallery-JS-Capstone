@@ -1,13 +1,21 @@
-const commentGet = async (id) => {
-  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/T1s4xFdr6wtV60QfASVp/comments?item_id=${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+import axios from 'axios';
 
-  });
-  const data = await response.json();
-  return data;
+const commentGet = async (id) => {
+  try {
+    const response = await axios.get(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/T1s4xFdr6wtV60QfASVp/comments?item_id=${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.status !== 200) {
+      throw new Error('Failed to fetch comments');
+    }
+
+    return response.data;
+  } catch (error) {
+    return [];
+  }
 };
 
 const postComment = async (id, username, comment) => {
