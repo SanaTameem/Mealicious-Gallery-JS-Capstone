@@ -3,9 +3,13 @@ import getMeals from './modules/getMeals.js';
 import popUp from './modules/PopUp.js';
 import getLikes from './modules/getLikes.js';
 import postLike from './modules/postLike.js';
+import homeItemCounter from './modules/homeItemCounter.js';
 
 const galleryContainer = document.querySelector('.gallery-container');
 let mealsArr = [];
+// showing count of meals:
+const counterLi = document.querySelector('.counter-container');
+
 const showCards = async () => {
   try {
     mealsArr = await getMeals();
@@ -64,4 +68,6 @@ const showCards = async () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await showCards();
+  const counterNum = await homeItemCounter();
+  counterLi.textContent = `(${counterNum})Meals`;
 });
