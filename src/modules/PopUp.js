@@ -1,3 +1,5 @@
+import getComments from './Comments.js';
+
 const openPopup = async (id) => {
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
   const { meals } = await response.json();
@@ -7,6 +9,13 @@ const openPopup = async (id) => {
   overlay.classList.add('overlay');
   const popupContainer = document.createElement('div');
   popupContainer.classList.add('popup-container');
+  const comments = await getComments(id);
+  let commentsHTML = '';
+  if (comments.length > 0) {
+    commentsHTML = comments
+      .map((comment) => `<p>${comment.creation_date}- ${comment.username}:${comment.comment}</p>`)
+      .join('');
+  }
 
   const {
     strMealThumb, strMeal, strArea, strMeasure2, strCategory, strIngredient6,
@@ -22,6 +31,11 @@ const openPopup = async (id) => {
     <p>Category: ${strCategory}</p>
     <p>Ingredient: ${strIngredient6}</p>
   </div>
+
+  <h3 class="comments-title">Comments ('0')</h3>
+      <div class="comments-div">
+        ${commentsHTML}
+      </div>
     `;
 
   document.querySelector('footer').classList.toggle('hidden');
