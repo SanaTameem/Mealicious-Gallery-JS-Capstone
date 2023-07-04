@@ -14,7 +14,9 @@ body {
 }
 
 li {
+  color: #000;
   list-style-type: none;
+  font-weight: 700;
 }
 
 a {
