@@ -1,4 +1,4 @@
-import getComments from './Comments.js';
+import { commentGet, postComment } from './Comments.js';
 
 const openPopup = async (id) => {
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
@@ -9,11 +9,11 @@ const openPopup = async (id) => {
   overlay.classList.add('overlay');
   const popupContainer = document.createElement('div');
   popupContainer.classList.add('popup-container');
-  const comments = await getComments(id);
+  const comments = await commentGet(id);
   let commentsHTML = '';
   if (comments.length > 0) {
     commentsHTML = comments
-      .map((comment) => `<p>${comment.creation_date}- ${comment.username}:${comment.comment}</p>`)
+      .map((comment) => `<p>${comment.creation_date} - ${comment.username}: ${comment.comment}</p>`)
       .join('');
   }
 
@@ -22,21 +22,28 @@ const openPopup = async (id) => {
   } = meals[0];
 
   popupContainer.innerHTML = `
-      <button class="close-btn">&times;</button>
-      <img src="${strMealThumb}" class="popup-image">
-  <h2 class='popup-food-name'>${strMeal}</h2>
-  <div class="popup-item-details-container">
-    <p>Area: ${strArea}</p>
-    <p>Measure: ${strMeasure2}</p>
-    <p>Category: ${strCategory}</p>
-    <p>Ingredient: ${strIngredient6}</p>
-  </div>
+    <button class="close-btn">&times;</button>
+    <img src="${strMealThumb}" class="popup-image">
+    <h2 class="popup-food-name">${strMeal}</h2>
+    <div class="popup-item-details-container">
+      <p>Area: ${strArea}</p>
+      <p>Measure: ${strMeasure2}</p>
+      <p>Category: ${strCategory}</p>
+      <p>Ingredient: ${strIngredient6}</p>
+    </div>
 
-  <h3 class="comments-title">Comments ('0')</h3>
-      <div class="comments-div">
-        ${commentsHTML}
-      </div>
-    `;
+    <h3 class="comments-title">Comments (0)</h3>
+    <div class="comments-div">
+      ${commentsHTML}
+    </div>
+
+    <h3 class="form-title">Add a comment</h3>
+    <form class="form">
+      <input class="user-name" type="text" placeholder="Your Name">
+      <textarea class="your-insight" placeholder="Your Insight" cols="40" rows="5"></textarea>
+      <button type="submit" class="submit-btn">Comment</button>
+    </form>
+  `;
 
   document.querySelector('footer').classList.toggle('hidden');
   document.querySelector('header').classList.toggle('hidden');
@@ -50,6 +57,21 @@ const openPopup = async (id) => {
     overlay.classList.toggle('visible');
     document.querySelector('footer').classList.toggle('hidden');
     document.querySelector('header').classList.toggle('hidden');
+  });
+
+  const form = popupContainer.querySelector('.form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = form.querySelector('.user-name').value;
+    const comment = form.querySelector('.your-insight').value;
+    await postComment(id, username, comment);
+    form.querySelector('.user-name').value = '';
+    form.querySelector('.your-insight').value = '';
+    const updatedComments = await commentGet(id);
+    const commentsDiv = popupContainer.querySelector('.comments-div');
+    commentsDiv.innerHTML = updatedComments
+      .map((comment) => `<p>${comment.creation_date} - ${comment.username}: ${comment.comment}</p>`)
+      .join('');
   });
 };
 

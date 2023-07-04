@@ -307,3 +307,45 @@ main {
 .visible {
   display: flex;
 }
+
+/* Form section */
+.form {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.user-name {
+  padding: 7px;
+  width: 84%;
+  border: 2px solid #222;
+  border-radius: 10px;
+}
+
+.your-insight {
+  border: 2px solid #222;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.submit-btn {
+  width: 25%;
+  padding: 8px;
+  background: #222;
+  color: #fff;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .form input,
+  .form textarea,
+  .form button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .form-title {
+    margin-top: 10px;
+  }
+}
