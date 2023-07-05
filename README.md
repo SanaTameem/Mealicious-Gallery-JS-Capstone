@@ -46,7 +46,7 @@
 
 - **[Showing a list of different meals with inforamtion]**
 - **[User can like the meals]**
-- **[User can leave a comment for meals]**
+- **[User can leave a comment for the meals]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -54,7 +54,8 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://sanatameem.github.io/Mealicious-Gallery-JS-Capstone/)
+- [Presentation link](https://drive.google.com/file/d/1lRHPoN9dM2y5VkmsAR5qIpH7gFXVC9V9/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,7 +109,7 @@ To run tests, run the following command:
 
 You can deploy this project using:
 
-- Github Pages
+- gh Pages
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,7 +135,7 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Adding extra wrb pages]**
+- [ ] **[Adding extra web pages]**
 - [ ] **[Better user interface]**
 - [ ] **[More functioanlities]**
 
@@ -146,7 +147,7 @@ You can deploy this project using:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/SanaTameem/Mealicious-Gallery/issues).
+Feel free to check the [issues page](https://github.com/SanaTameem/Mealicious-Gallery-JS-Capstone/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,7 +155,7 @@ Feel free to check the [issues page](https://github.com/SanaTameem/Mealicious-Ga
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project give me a ⭐️.
+If you like this project give us a ⭐️.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -162,7 +163,7 @@ If you like this project give me a ⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank the microverse team.
+We would like to thank the microverse team.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -170,6 +171,6 @@ I would like to thank the microverse team.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/SanaTameem/Mealicious-Gallery/blob/dev/MIT.md) licensed.
+This project is [MIT](https://github.com/SanaTameem/Mealicious-Gallery-JS-Capstone/blob/dev/MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
