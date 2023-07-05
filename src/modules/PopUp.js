@@ -1,4 +1,5 @@
 import { commentGet, postComment } from './Comments.js';
+import updateCommentCounter from './commentCounter.js';
 
 const openPopup = async (id) => {
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
@@ -32,15 +33,15 @@ const openPopup = async (id) => {
       <p>Ingredient: ${strIngredient6}</p>
     </div>
 
-    <h3 class="comments-title">Comments (0)</h3>
+    <h3 class="comments-title">Comments<span class='comment-counter'>(${comments.length})</span></h3>
     <div class="comments-div">
       ${commentsHTML}
     </div>
 
     <h3 class="form-title">Add a comment</h3>
     <form class="form">
-      <input class="user-name" type="text" placeholder="Your Name">
-      <textarea class="your-insight" placeholder="Your Insight" cols="40" rows="5"></textarea>
+      <input class="user-name" type="text" placeholder="Your Name" required>
+      <textarea class="your-insight" placeholder="Your Insight" cols="40" rows="5" required></textarea>
       <button type="submit" class="submit-btn">Comment</button>
     </form>
   `;
@@ -65,6 +66,7 @@ const openPopup = async (id) => {
     const username = form.querySelector('.user-name').value;
     const comment = form.querySelector('.your-insight').value;
     await postComment(id, username, comment);
+    await updateCommentCounter(id);
     form.querySelector('.user-name').value = '';
     form.querySelector('.your-insight').value = '';
     const updatedComments = await commentGet(id);
